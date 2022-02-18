@@ -1,0 +1,74 @@
+body{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#0a0a23;
+}
+
+#sheet {
+    text-align: left;
+    max-width: 500px;
+    margin:auto;
+    padding:10px;
+    border: 2px solid #d0d0d5
+  }/*body text align center originally centered. text align here left justified each line and the whole sheet.*/
+  /*margin auto shifted back to the center left with text left justified.*/
+
+  #header h2{
+      font-size: 1.3em;
+      background-color:transparent;
+  }
+  .row{
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 1px solid #0a0a23;
+      padding: 4px;
+  }
+  .name {
+      width: 100%;
+      text-align: left;
+  }
+  span:not(.name){
+    margin-left: 10px;
+    min-width: 15%
+    text-align:right;
+  }/*the margin left caused the $s to expand to the left*/
+
+  span[class="current"]{
+    font-style:italic;
+  }/*let's you target any element where attribute has a specific value.*/
+  .row:nth-of-type(odd){
+    background-color:#dfdfe2;
+  }/*allows you targets siblings based upon their positions with nth-child. changed.*/
+  .row:nth-of-type(even){
+      background-color: #d0d0d5;
+  }
+  .row:last-child{
+    background-color:transparent;
+    margin-bottom:30px;
+  }
+  p[class~="total"]{
+    border-bottom: 4px double #0a0a23;
+    font-weight:bold;
+  }/*more specific and would overwrite if only using .total*/
+  .row[tabindex]:hover{
+    background-color: #99c9ff;
+  }/*allows targeting elements that have any value set for the given attribute.so the tabindex attribute.*/
+  .row[tabindex]:focus{
+    background-color:#198eee;
+    color: white;
+  }/*allows you to click and get the coded result with focus.*/
+  div>h2{
+    background-color:#99c9ff;
+    font-size:1.3em;
+    padding:0 4px;
+  }/*targets the direct child of elem 1*/
+  div~h2{
+    font-weight:normal;
+  }/*targets elem2 where preceded by elem1. if both with a parent elem2 will be targeted. Hence, ACME wasn't.*/
+  /*it had no div sibling reference html sheet.*/
+  p+span{
+    font-size:0.8em;
+    font-style: italic;
+    color:#3b3b4f;
+  }/*targets elem2 immediately after elem1; hence, it targets only the notes.*/
+
